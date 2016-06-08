@@ -50,7 +50,7 @@ var Facebook = React.createClass({
           <p style={Styles.title}>{this.props.title}</p>
           <p style={Styles.subtitle}>{this.props.subtitle}</p>
           <p style={Styles.subtitle}>
-            Created by <a href="http://github.com/lynnaloo/">@lynnaloo</a>
+            Created by <a href="http://github.com/lynnaloo/">@jlembeck</a>
           </p>
         </header>
       </div>

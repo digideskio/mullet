@@ -37,13 +37,13 @@ server.register([Inert, Vision], function() {
         }
       };
       server.render('facebook.jsx', ctx, renderOptions, function(err, appOutput){
-        console.log('error in facebook render: ', err)
+        console.log('error in facebook render: ', err);
         var htmlCtx = {
           children: appOutput,
           state: 'window.state = ' + JSON.stringify(ctx) + ';'
         };
         server.render('layout/default.jsx', htmlCtx, renderOptions, function(err, htmlOutput){
-        console.log('error in layout render: ', err)
+        console.log('error in layout render: ', err);
           reply(htmlOutput);
         });
       });

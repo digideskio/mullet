@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var TitleLink = require('./title-link.jsx');
 
 var Styles = {
   flexContainer: {
@@ -15,11 +16,6 @@ var Styles = {
   image: {
     display: 'block',
     margin: '0 auto 20px'
-  },
-  title: {
-    display: 'block',
-    fontSize: '2em',
-    fontWeight: 700
   },
   subtitle: {
     fontSize: '1em',
@@ -47,7 +43,8 @@ var Facebook = React.createClass({
             src="/images/mullet_600.png"
             width="200"
             alt="Mullet"/>
-          <p style={Styles.title}>{this.props.title}</p>
+
+          <TitleLink title={this.props.title} />
           <p style={Styles.subtitle}>{this.props.subtitle}</p>
           <p style={Styles.subtitle}>
             Created by <a href="http://github.com/lynnaloo/">@jlembeck</a>

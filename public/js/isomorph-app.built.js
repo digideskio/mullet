@@ -19707,6 +19707,7 @@ ReactDom.render(App(serverState), mountNode);
 'use strict';
 
 var React = require('react');
+var TitleLink = require('./title-link.jsx');
 
 var Styles = {
   flexContainer: {
@@ -19721,11 +19722,6 @@ var Styles = {
   image: {
     display: 'block',
     margin: '0 auto 20px'
-  },
-  title: {
-    display: 'block',
-    fontSize: '2em',
-    fontWeight: 700
   },
   subtitle: {
     fontSize: '1em',
@@ -19758,11 +19754,7 @@ var Facebook = React.createClass({
           src: '/images/mullet_600.png',
           width: '200',
           alt: 'Mullet' }),
-        React.createElement(
-          'p',
-          { style: Styles.title },
-          this.props.title
-        ),
+        React.createElement(TitleLink, { title: this.props.title }),
         React.createElement(
           'p',
           { style: Styles.subtitle },
@@ -19784,5 +19776,60 @@ var Facebook = React.createClass({
 });
 
 module.exports = Facebook;
+
+},{"./title-link.jsx":170,"react":167}],170:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+var Styles = {
+  title: {
+    display: 'block',
+    fontSize: '2em',
+    fontWeight: 700,
+    textAlign: 'center',
+    appearance: 'none',
+    boxShadow: 'none',
+    border: '0px none',
+    background: 'transparent none repeat scroll 0% 0%',
+    margin: '0px auto'
+  }
+};
+
+var TitleLink = React.createClass({
+  displayName: 'TitleLink',
+
+  propTypes: {
+    title: React.PropTypes.string
+  },
+  getInitialState: function getInitialState() {
+    return {
+      title: this.props.title,
+      toggled: false
+    };
+  },
+  handleClick: function handleClick(e) {
+    if (this.state.toggled) {
+      this.setState({
+        title: 'ohai',
+        toggled: false
+      });
+    } else {
+      this.setState({
+        title: 'haio',
+        toggled: true
+      });
+    }
+  },
+  render: function render() {
+    return React.createElement(
+      'button',
+      { style: Styles.title, onClick: this.handleClick },
+      this.state.title
+    );
+  }
+});
+
+module.exports = TitleLink;
 
 },{"react":167}]},{},[168]);
